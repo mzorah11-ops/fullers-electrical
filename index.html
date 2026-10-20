@@ -344,6 +344,8 @@ html:not(.js) .h1 .hl::after{transform:scaleX(1)}
 
 /* ───────── Booking ───────── */
 .book-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
+/* let every grid column shrink below its content so nothing can push the page wider than the screen */
+.book-grid>*,.contact-grid>*,.svc-grid>*,.about>*{min-width:0}
 .book-side ul{list-style:none;margin:34px 0 0;padding:0}
 .book-side li{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:.95rem}
 .book-side li span{font-size:12px;font-weight:600;letter-spacing:.14em;padding-top:3px;flex:none}
@@ -372,8 +374,8 @@ html:not(.js) .h1 .hl::after{transform:scaleX(1)}
 .field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--gold)}
 .field ::placeholder{color:#777}
 .radios{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.radios label{cursor:pointer}
-.radios input{position:absolute;opacity:0;pointer-events:none}
+.radios label{position:relative;cursor:pointer}
+.radios input{position:absolute;left:0;top:0;width:1px;height:1px;margin:0;padding:0;border:0;opacity:0;pointer-events:none}
 .radios span{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:99px;border:1px solid var(--line);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);transition:border-color .25s,background .25s,color .25s}
 .radios input:checked+span{border-color:var(--gold);background:var(--gold);color:#050505}
 .radios input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
@@ -392,7 +394,7 @@ html:not(.js) .h1 .hl::after{transform:scaleX(1)}
 .note{margin:0 0 20px;padding:14px 18px;border-radius:14px;border:1px dashed var(--gold);color:var(--gold-hot);font-size:.9rem}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (max-width:900px){.book-grid{grid-template-columns:1fr}}
-@media (max-width:520px){.row2{grid-template-columns:1fr}.slots{grid-template-columns:repeat(3,1fr)}.days{grid-template-columns:repeat(5,minmax(58px,1fr));overflow-x:auto;padding-bottom:6px}}
+@media (max-width:520px){.row2{grid-template-columns:1fr}.slots{grid-template-columns:repeat(3,1fr)}.days{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.days .chip{min-width:0;padding:8px 2px}}
 
 /* ───────── Contact ───────── */
 .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px)}
