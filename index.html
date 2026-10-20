@@ -209,6 +209,8 @@ html:not(.js) .fx{opacity:1}
 .lm-btn:active .lm-face{box-shadow:inset 0 2px 4px rgba(0,0,0,.4),inset 0 1px 2px rgba(0,0,0,.3)}
 .lm-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .lm-btn.sm{min-height:40px;padding:0 20px;font-size:11px}
+/* on phones the header keeps just the logo and MENU (this must come after .lm-btn so it wins) */
+@media (max-width:760px){.lm-btn.hdr-book{display:none}}
 .l-r{padding-left:calc(var(--col) - var(--hx) + 1.6vw)}
 .h1 .hl{position:relative;display:inline-block}
 .h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.16em;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease-io) 1.1s;z-index:-1}
